@@ -1,0 +1,175 @@
+enggunakan gambar dari Pexels:
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link href="output.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.9.1/dist/cdn.min.js" defer></script>
+  <style>
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Navbar -->
+  <nav x-data="{ open: false, isVisible: true, prevScroll: 0 }" class="fixed bg-gray-800 text-white w-full z-50 shadow-lg" x-init="prevScroll = window.pageYOffset;" 
+       @scroll.window="let currScroll = window.pageYOffset; isVisible = currScroll <= prevScroll || currScroll <= 10; prevScroll = currScroll;" 
+       :class="isVisible ? 'top-0' : '-top-20'" 
+       class="fixed bg-gray-800 text-white w-full transition-all duration-300 z-50">
+    <div class="container mx-auto flex justify-between items-center px-4 py-4">
+      <h1 class="text-xl font-bold">My Portfolio</h1>
+      <button @click="open = !open" class="block md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+      <ul :class="open ? 'block' : 'hidden'" class="space-y-2 absolute bg-gray-800 md:bg-transparent w-full md:w-auto md:static top-16 left-0 md:flex md:space-y-0 md:space-x-6">
+        <li><a href="#about" class="block px-4 py-2 hover:text-gray-400 transition">About</a></li>
+        <li><a href="#portfolio" class="block px-4 py-2 hover:text-gray-400 transition">Portfolio</a></li>
+        <li><a href="#skills" class="block px-4 py-2 hover:text-gray-400 transition">Skills</a></li>
+        <li><a href="#contact" class="block px-4 py-2 hover:text-gray-400 transition">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  
+
+  <!-- About Section -->
+  <section id="about" class="py-12 bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/1231231/pexels-photo-1231231.jpeg');">
+    <div class="bg-black bg-opacity-50 py-12">
+      <div class="container mx-auto px-4 text-center text-white">
+        <h2 class="text-3xl font-bold mb-4">About Me</h2>
+        <p class="text-gray-300 max-w-2xl mx-auto">
+          Hello! I'm a passionate web developer with a strong focus on creating responsive and dynamic websites. I love solving complex problems through code.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-12 bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/1231232/pexels-photo-1231232.jpeg');">
+    <div class="bg-black bg-opacity-50 py-12">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-white mb-8">Portfolio</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Project Cards -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <img src="https://images.pexels.com/photos/1231233/pexels-photo-1231233.jpeg" alt="Project 1" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h3 class="font-bold text-lg">Project 1</h3>
+              <p class="text-gray-600 text-sm">Responsive e-commerce website with advanced filtering options.</p>
+            </div>
+          </div>
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <img src="https://images.pexels.com/photos/1231234/pexels-photo-1231234.jpeg" alt="Project 2" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h3 class="font-bold text-lg">Project 2</h3>
+              <p class="text-gray-600 text-sm">Modern portfolio site for creative professionals.</p>
+            </div>
+          </div>
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <img src="https://images.pexels.com/photos/1231235/pexels-photo-1231235.jpeg" alt="Project 3" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h3 class="font-bold text-lg">Project 3</h3>
+              <p class="text-gray-600 text-sm">Real-time chat application using WebSockets.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-12 bg-gray-100">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-8">My Skills</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="p-4 bg-white rounded-lg shadow-lg flex flex-col items-center">
+          <svg class="w-12 h-12 text-blue-500 mb-2" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 1v22M1 12h22" /></svg>
+          <p class="font-bold text-lg">HTML</p>
+        </div>
+        <div class="p-4 bg-white rounded-lg shadow-lg flex flex-col items-center">
+          <svg class="w-12 h-12 text-green-500 mb-2" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor"><path d="M2 10l4-4 6 6L22 4" /></svg>
+          <p class="font-bold text-lg">CSS</p>
+        </div>
+        <div class="p-4 bg-white rounded-lg shadow-lg flex flex-col items-center">
+          <svg class="w-12 h-12 text-yellow-500 mb-2" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 13h18M9 21h6M12 3L4 15h16L12 3z" /></svg>
+          <p class="font-bold text-lg">JavaScript</p>
+        </div>
+        <div class="p-4 bg-white rounded-lg shadow-lg flex flex-col items-center">
+          <svg class="w-12 h-12 text-purple-500 mb-2" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor"><path d="M4 16l4-4 6 6 6-6" /></svg>
+          <p class="font-bold text-lg">React</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-12 bg-gray-100">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-8">Contact Me</h2>
+      <form id="contact-form" class="max-w-lg mx-auto space-y-4">
+        <input type="text" id="name" placeholder="Name" class="w-full px-4 py-2 border rounded-lg">
+        <textarea id="message" placeholder="Message" class="w-full px-4 py-2 border rounded-lg"></textarea>
+        <button type="button" id="submit-button" class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+          Send Message
+        </button>
+      </form>
+      <div id="messages" class="mt-8 text-left space-y-4">
+        <!-- Pesan akan muncul di sini -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-4">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Menyimpan dan Menampilkan Pesan
+    document.addEventListener('DOMContentLoaded', () => {
+      const messagesContainer = document.getElementById('messages');
+      const form = document.getElementById('contact-form');
+      const nameInput = document.getElementById('name');
+      const messageInput = document.getElementById('message');
+      const submitButton = document.getElementById('submit-button');
+
+      // Muat pesan dari localStorage
+      const loadMessages = () => {
+        const messages = JSON.parse(localStorage.getItem('messages')) || [];
+        messagesContainer.innerHTML = messages
+          .map(msg => `<div class="bg-gray-100 p-4 rounded-lg shadow-md"><strong>${msg.name}:</strong> ${msg.message}</div>`)
+          .join('');
+      };
+
+      // Tambah pesan baru
+      const addMessage = () => {
+        const name = nameInput.value.trim();
+        const message = messageInput.value.trim();
+        if (!name || !message) return;
+
+        const messages = JSON.parse(localStorage.getItem('messages')) || [];
+        messages.push({ name, message });
+        localStorage.setItem('messages', JSON.stringify(messages));
+
+        nameInput.value = '';
+        messageInput.value = '';
+        loadMessages();
+      };
+
+      // Event Listener
+      submitButton.addEventListener('click', addMessage);
+      loadMessages();
+    });
+  </script>
+</body>
+</html>
